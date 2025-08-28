@@ -1,0 +1,171 @@
+/* TaskList.css - Estilos y animaciones para la lista de tareas */
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    border-left: 4px solid #e0e0e0;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-left-color: #2196f3;
+}
+
+/* Checkbox personalizado */
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #2196f3;
+    transition: transform 0.2s ease;
+}
+
+.task-checkbox:hover {
+    transform: scale(1.1);
+}
+
+/* Texto de la tarea */
+.task-text {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.task-text:hover {
+    background-color: #f5f5f5;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #666;
+    transform: translateX(10px);
+}
+
+/* Input de edición */
+.task-edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #2196f3;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.task-edit-input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+/* Botón de borrar */
+.delete-btn {
+    padding: 8px 16px;
+    background: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 70px;
+}
+
+.delete-btn:hover {
+    background: #d32f2f;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn:active {
+    transform: translateY(0);
+}
+
+/* Botón de limpiar todo */
+.clear-btn {
+    padding: 12px 24px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+.clear-btn:hover {
+    background: #f57c00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clear-btn:active {
+    transform: translateY(0);
+}
+
+/* Animación de borrado */
+.task-item.removing {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animación de entrada para nuevas tareas */
+.task-item {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .task-item {
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    .task-text {
+        font-size: 14px;
+    }
+    
+    .delete-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        min-width: 60px;
+    }
+}

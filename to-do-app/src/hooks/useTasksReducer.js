@@ -10,10 +10,16 @@ export function useTasksReducer() {
 
     const clearTasks = () => dispatch({ type: 'CLEAR' }) // Limpiar todas las tareas
 
+    const toggleTask = (task) => dispatch({ type: 'TOGGLE', payload: task }) // Cambiar el estado de una tarea
+
+    const editTask = (taskId, title) => dispatch({ type: 'EDIT', payload: {id: taskId, title} }) // Editar una tarea
+
     return {
         state,
         addTask,
         deleteTask,
-        clearTasks
+        clearTasks,
+        toggleTask,
+        editTask
     }
 }

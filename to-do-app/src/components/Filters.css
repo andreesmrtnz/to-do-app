@@ -1,0 +1,55 @@
+/* Filters.css - Estilos para los botones de filtro */
+
+.filters-container {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    color: #666;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 100px;
+}
+
+.filter-btn:hover {
+    border-color: #2196f3;
+    color: #2196f3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);
+}
+
+.filter-btn.active {
+    background: #2196f3;
+    border-color: #2196f3;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.filter-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .filters-container {
+        gap: 8px;
+        margin: 15px 0;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        min-width: 80px;
+    }
+}

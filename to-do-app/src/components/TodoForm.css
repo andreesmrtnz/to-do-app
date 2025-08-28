@@ -1,0 +1,107 @@
+/* TodoForm.css - Estilos para el formulario de añadir tareas */
+
+.todo-form-container {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.todo-form-container h1 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.todo-form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.todo-input {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    min-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.todo-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.todo-input::placeholder {
+    color: #999;
+}
+
+.add-btn {
+    padding: 15px 30px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+}
+
+.add-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+.add-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .todo-form-container {
+        margin: 20px 0;
+        padding: 15px;
+    }
+    
+    .todo-form-container h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .todo-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .todo-input {
+        min-width: 250px;
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+    
+    .add-btn {
+        padding: 12px 25px;
+        font-size: 14px;
+        min-width: 100px;
+    }
+}

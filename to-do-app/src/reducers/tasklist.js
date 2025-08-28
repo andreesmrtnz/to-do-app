@@ -5,7 +5,9 @@ export const taskListInitialState = JSON.parse(localStorage.getItem('taskList'))
 export const TASK_LIST_ACTIONS = {
     ADD: 'ADD',
     DELETE: 'DELETE',
-    CLEAR: 'CLEAR'
+    CLEAR: 'CLEAR',
+    TOGGLE: 'TOGGLE',
+    EDIT: 'EDIT'
 }
 
 export const updateLocalStorage = state => {
@@ -15,9 +17,9 @@ export const updateLocalStorage = state => {
 const UPDATE_STATE_BY_ACTION = {
     [TASK_LIST_ACTIONS.ADD]: (state, action) => {
         const {id} = action.payload
-        const tastInTaskListIndex = state.findIndex(task => task.id === id)
+        const taskInTaskListIndex = state.findIndex(task => task.id === id)
 
-        if (tastInTaskListIndex >= 0) {
+        if (taskInTaskListIndex >= 0) {
             const newTaskList = [...state, action.payload]
 
             updateLocalStorage(newTaskList)
@@ -37,6 +39,18 @@ const UPDATE_STATE_BY_ACTION = {
     },
     [TASK_LIST_ACTIONS.CLEAR]: () => {
         const newTaskList = []
+        updateLocalStorage(newTaskList)
+        return newTaskList
+    },
+    [TASK_LIST_ACTIONS.TOGGLE]: (state, action) => {
+        const {id} = action.payload
+        const newTaskList = state.map(task => task.id === id ? {...task, completed: !task.completed} : task)
+        updateLocalStorage(newTaskList)
+        return newTaskList
+    },
+    [TASK_LIST_ACTIONS.EDIT]: (state, action) => {
+        const {id, title} = action.payload
+        const newTaskList = state.map(task => task.id === id ? {...task, title} : task)
         updateLocalStorage(newTaskList)
         return newTaskList
     }
